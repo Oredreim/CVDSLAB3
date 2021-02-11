@@ -30,11 +30,25 @@ correcto / incorrecto.
 
 
 3. Para cada clase de equivalencia, defina un caso de prueba específico, definiendo: parámetros de
-entrada y resultados esperados.      
+entrada y resultados esperados.    
 
 
-4. A partir de las clases de equivalencia identificadas en el punto 2, identifique las condiciones límite o
-de frontera de las mismas.  
++ edad < 0 
+        calculo.calculoTarifa(10000,5,-24); throws Exception
++ valor <= 0
+        calculo.calculoTarifa(-10000,5,24); throws
++ dias habiles < 0
+       calculo.calculoTarifa(10000,-5,24); throws Exception
++ descuento menor de edad 
+      calculo.calculoTarifa(10000,12,16) -> 9500
++ descuento mayor 65 
+      calculo.calculoTarifa(10000,12,68) -> 9200
++ descuento 20 dias anticipados 
+      calculo.calculoTarifa(10000,21,20) -> 7500
++ sin descuentos 
+      calculo.calculoTarifa(10000,5,24) -> 10000
++ descuento mayor 65 y 20 dias anticipados
+      calculo.calculoTarifa(10000,21,68) -> 7700
++ descuento menor 18 y 20 dias anticipados 
+      calculo.calculoTarifa(10000,21,68) -> 8000
 
-
-5. Para cada una de las condiciones de frontera anteriores, defina casos de prueba específicos.  
