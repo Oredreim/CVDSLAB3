@@ -46,8 +46,30 @@ public class TarifasTest {
 	@Test
 	public void edadErronea () throws ExcepcionParametrosInvalidos{
 		calculo = new CalculadorDescuentos;
-		try calculo.calculoTarifa(10000,5,-24);
+		try { calculo.calculoTarifa(10000,5,-24);}
+			catch(ExcepcionParametrosInvalidos e){
+				Assert.assertTrue(true);
+			}
 	}
+
+	@Test
+	public void diasErroneos () throws ExcepcionParametrosInvalidos{
+		calculo = new CalculadorDescuentos;
+		try { calculo.calculoTarifa(10000,-5,24);}
+			catch(ExcepcionParametrosInvalidos e){
+				Assert.assertTrue(true);
+			}
+	}
+
+	@Test
+	public void precioErroneo () throws ExcepcionParametrosInvalidos{
+		calculo = new CalculadorDescuentos;
+		try { calculo.calculoTarifa(-10000,5,24);}
+			catch(ExcepcionParametrosInvalidos e){
+				Assert.assertTrue(true);
+			}
+	}
+
 
 
 
